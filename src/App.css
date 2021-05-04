@@ -2,10 +2,15 @@
   text-align: center;
 }
 
+.modal-container {
+  display: block;
+}
+
 .note-container {
   border-radius: 0.5rem;
   border: 2px solid var(--theme200);
   position: relative;
+  background-color: var(--theme50);
 }
 
 .txt-input {
@@ -20,10 +25,24 @@
   font-weight: bold;
 }
 
-.txt-description {
+.txt-description,
+.txt-note,
+.note-description {
   width: 100%;
-  height: 8rem;
   font-size: 0.9em;
+  resize: none;
+}
+
+.txt-note {
+  height: 2.5rem;
+}
+
+.note-description {
+  height: 15rem;
+}
+
+.txt-description {
+  height: 8rem;
 }
 
 .fas {
@@ -95,7 +114,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   line-height: 1.6;
   height: 5rem;
 }
@@ -127,11 +146,16 @@
   padding-left: 0.3rem;
 }
 
-.label-active{
+.label-active {
   background-color: var(--secondaryBg);
   border: 1px solid var(--secondaryTxt);
 }
 
-.new-label{
+.new-label {
   font-size: 0.9em;
+}
+
+.note-editor {
+  width: 90%;
+  cursor: pointer;
 }

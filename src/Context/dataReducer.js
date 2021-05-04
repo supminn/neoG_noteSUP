@@ -7,6 +7,22 @@ export const dataReducer = (state, { type, payload }) => {
       return payload.pinFlag
         ? { ...state, pinned: state.pinned.concat(payload) }
         : { ...state, others: state.others.concat(payload) };
+    case "EDIT_NOTE": {
+      const pinnedNote = state.pinned.some((note) => note._id === payload._id);
+      return pinnedNote
+        ? {
+            ...state,
+            pinned: state.pinned.map((note) =>
+              note._id === payload._id ? { ...payload } : note
+            ),
+          }
+        : {
+            ...state,
+            others: state.others.map((note) =>
+              note._id === payload._id ? { ...payload } : note
+            ),
+          };
+    }
     case "TOGGLE_PIN":
       return payload.pinFlag
         ? {
