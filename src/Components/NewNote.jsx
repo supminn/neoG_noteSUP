@@ -3,11 +3,11 @@ import { useDataContext } from "../Context/DataProvider";
 import { NoteIcons } from "./NoteIcons";
 
 export const NewNote = ({ existingNote }) => {
-  const { label, dispatch } = useDataContext();
+  const { dispatch } = useDataContext();
   const initialState = {
     title: "",
     description: "",
-    label,
+    label:"General",
     color: "",
     pinFlag: false,
   };

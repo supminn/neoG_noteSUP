@@ -6,9 +6,22 @@ const DataContext = createContext();
 export const useDataContext = () => useContext(DataContext);
 
 const intialState = {
-    pinned: [],
-    others: [],
-    labels:["Personal","Work"],
+  pinned: [],
+  others: [],
+  labels: [
+    {
+      _id: 1,
+      name: "General",
+    },
+    {
+      _id: 2,
+      name: "Personal",
+    },
+    {
+      _id: 3,
+      name: "Work",
+    },
+  ],
 };
 
 export const DataProvider = ({ children }) => {
