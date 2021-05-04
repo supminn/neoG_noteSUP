@@ -22,6 +22,7 @@ const intialState = {
       name: "Work",
     },
   ],
+  filter:"General"
 };
 
 export const DataProvider = ({ children }) => {

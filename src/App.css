@@ -25,9 +25,11 @@
   height: 8rem;
   font-size: 0.9em;
 }
-.fas{
+
+.fas {
   cursor: pointer;
 }
+
 .fa-thumbtack {
   position: absolute;
   top: 0;
@@ -38,16 +40,16 @@
   padding-top: 0.8rem;
 }
 
-.fa-thumbtack:hover{
+.fa-thumbtack:hover {
   background-color: var(--theme100);
   color: var(--primaryBg);
 }
 
-.pinned{
+.pinned {
   color: var(--primaryBg);
 }
 
-.color-palette{
+.color-palette {
   display: block;
   /* border: 1px solid var(--theme100); */
   width: 8rem;
@@ -58,7 +60,7 @@
   left:32%; */
 }
 
-.palette-container{
+.palette-container {
   display: flex;
   align-items: center;
   /* position: absolute;
@@ -66,29 +68,29 @@
   left: 1% */
 }
 
-.fa-circle{
+.fa-circle {
   padding: 0.3rem 0.1rem;
   border-radius: 50%;
 }
 
-.fa-circle:hover{
+.fa-circle:hover {
   transform: scale(1.2);
 }
 
-.note-footer{
+.note-footer {
   display: flex;
 }
 
-.btn{
+.btn {
   margin: 0.5rem;
   padding: 0.5rem;
 }
 
-.card{
+.card {
   background-color: unset;
 }
 
-.note-body{
+.note-body {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -98,13 +100,38 @@
   height: 5rem;
 }
 
-.label-container{
+.label-container {
   font-family: inherit;
   background-color: var(--theme50);
   border-radius: 0.5rem;
   padding: 0.2rem;
 }
 
-.label-container > option{
+.label-container>option {
   font-family: inherit;
+}
+
+.labels-container {
+  display: flex;
+  padding: 0.3rem;
+  border: 1px solid transparent;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  width: 35%;
+  cursor: pointer;
+}
+
+.label-value {
+  color: var(--primaryBg);
+  font-weight: 600;
+  padding-left: 0.3rem;
+}
+
+.label-active{
+  background-color: var(--secondaryBg);
+  border: 1px solid var(--secondaryTxt);
+}
+
+.new-label{
+  font-size: 0.9em;
 }

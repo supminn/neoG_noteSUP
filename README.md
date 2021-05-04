@@ -1,3 +1,8 @@
+## Upcoming Enhancements
+* Edit exisiting note via a separate modal
+* Persistence using local storage / firebase
+* Designing of the app.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

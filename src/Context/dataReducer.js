@@ -68,6 +68,8 @@ export const dataReducer = (state, { type, payload }) => {
             ),
           };
     }
+    case "SET_FILTER":
+      return { ...state, filter: payload };
     default:
       return state;
   }
