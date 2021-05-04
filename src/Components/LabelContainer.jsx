@@ -59,5 +59,6 @@ export const getFilteredData = (data, filter) => {
   if (filter !== "General") {
     data = data.filter((note) => note.label === filter);
   }
+  data = data.slice(0).reverse();
   return data;
 };

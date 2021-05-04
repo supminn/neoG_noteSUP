@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDataContext } from "../Context/DataProvider";
 import { NoteIcons } from "./NoteIcons";
 
@@ -7,11 +7,17 @@ export const NewNote = ({ existingNote }) => {
   const initialState = {
     title: "",
     description: "",
-    label:"General",
+    label: "General",
     color: "",
     pinFlag: false,
   };
   const [note, setNote] = useState(existingNote || initialState);
+  const noteRef = useRef(null);
+  const [showDetail, setShowDetail] = useState(false);
+
+  useEffect(() => {
+    noteRef.current.focus();
+  }, []);
 
   const createNote = (e) => {
     e.preventDefault();
@@ -19,6 +25,7 @@ export const NewNote = ({ existingNote }) => {
       dispatch({ type: "ADD_NOTE", payload: note });
     }
     setNote(initialState);
+    setShowDetail(false);
   };
   return (
     <>
@@ -28,7 +35,7 @@ export const NewNote = ({ existingNote }) => {
         className="note-container"
         style={{ backgroundColor: note.color }}
       >
-        <input
+        {showDetail && <input
           className="txt-input txt-title"
           type="text"
           placeholder="Title"
@@ -36,26 +43,31 @@ export const NewNote = ({ existingNote }) => {
           onChange={(e) =>
             setNote((note) => ({ ...note, title: e.target.value }))
           }
-        />
+        />}
         <textarea
+          ref={noteRef}
           className="txt-input txt-description"
           type="text"
           placeholder="Take a note..."
           value={note.description}
-          onChange={(e) =>
-            setNote((note) => ({ ...note, description: e.target.value }))
+          onClick={() => setShowDetail(true)}
+          onChange={(e) =>{ setShowDetail(true);
+            setNote((note) => ({ ...note, description: e.target.value }));}
           }
         />
-        <div className="note-footer">
+        {showDetail && <div className="note-footer">
           <NoteIcons note={note} setNote={setNote} />
-          <button className="btn btn-secondary" type="button"
-          onClick={() => setNote(initialState)}>
+          <button
+            className="btn btn-secondary"
+            type="button"
+            onClick={() => setNote(initialState)}
+          >
             Clear
           </button>
           <button className="btn btn-primary" type="submit">
             Add
           </button>
-        </div>
+        </div>}
       </form>
     </>
   );

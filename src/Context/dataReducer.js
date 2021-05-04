@@ -70,6 +70,18 @@ export const dataReducer = (state, { type, payload }) => {
     }
     case "SET_FILTER":
       return { ...state, filter: payload };
+    case "REMOVE_NOTE": {
+      const pinnedNote = state.pinned.some((note) => note._id === payload._id);
+      return pinnedNote
+        ? {
+            ...state,
+            pinned: state.pinned.filter((note) => note._id !== payload._id),
+          }
+        : {
+            ...state,
+            others: state.others.filter((note) => note._id !== payload._id),
+          };
+    }
     default:
       return state;
   }
