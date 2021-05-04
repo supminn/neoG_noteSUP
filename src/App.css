@@ -1,161 +1,40 @@
-.App {
+@import "./Components/Notes/note.css";
+@import "./Components/Label/label.css";
+@import "./Components/Navigation/navigation.css";
+@import "./Components/Container/container.css";
+
+.grid-container {
   text-align: center;
+  display: grid;
 }
 
 .modal-container {
   display: block;
 }
 
-.note-container {
-  border-radius: 0.5rem;
-  border: 2px solid var(--theme200);
-  position: relative;
-  background-color: var(--theme50);
+.desktop-labels {
+  display: none;
 }
 
-.txt-input {
-  display: block;
-  background-color: unset;
-  color: var(--black);
+@media screen and (min-width: 768px) {
+  .desktop-labels {
+    display: block;
+    grid-area: labels;
+  }
+
+  .grid-container {
+    grid-template-areas: "nav nav"
+      "labels notes";
+      grid-template-columns: 1fr 3fr;
+    grid-gap: 1rem;
+  }
+
+  .nav {
+    grid-area: nav;
+  }
+
+  .notes-container {
+    grid-area: notes;
+  }
 }
 
-.txt-title {
-  width: 100%;
-  font-size: large;
-  font-weight: bold;
-}
-
-.txt-description,
-.txt-note,
-.note-description {
-  width: 100%;
-  font-size: 0.9em;
-  resize: none;
-}
-
-.txt-note {
-  height: 2.5rem;
-}
-
-.note-description {
-  height: 15rem;
-}
-
-.txt-description {
-  height: 8rem;
-}
-
-.fas {
-  cursor: pointer;
-}
-
-.fa-thumbtack {
-  position: absolute;
-  top: 0;
-  right: 0;
-  color: var(--theme300);
-  border-radius: 50%;
-  padding: 0.5rem;
-  padding-top: 0.8rem;
-}
-
-.fa-thumbtack:hover {
-  background-color: var(--theme100);
-  color: var(--primaryBg);
-}
-
-.pinned {
-  color: var(--primaryBg);
-}
-
-.color-palette {
-  display: block;
-  /* border: 1px solid var(--theme100); */
-  width: 8rem;
-  padding: 0.3rem;
-  border-radius: 0.5rem;
-  /* position: absolute;
-  bottom: 38%;
-  left:32%; */
-}
-
-.palette-container {
-  display: flex;
-  align-items: center;
-  /* position: absolute;
-  bottom: 3%;
-  left: 1% */
-}
-
-.fa-circle {
-  padding: 0.3rem 0.1rem;
-  border-radius: 50%;
-}
-
-.fa-circle:hover {
-  transform: scale(1.2);
-}
-
-.note-footer {
-  display: flex;
-}
-
-.btn {
-  margin: 0.5rem;
-  padding: 0.5rem;
-}
-
-.card {
-  background-color: unset;
-}
-
-.note-body {
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  line-height: 1.6;
-  height: 5rem;
-}
-
-.label-container {
-  font-family: inherit;
-  background-color: var(--theme50);
-  border-radius: 0.5rem;
-  padding: 0.2rem;
-}
-
-.label-container>option {
-  font-family: inherit;
-}
-
-.labels-container {
-  display: flex;
-  padding: 0.3rem;
-  border: 1px solid transparent;
-  border-bottom-right-radius: 1rem;
-  border-top-right-radius: 1rem;
-  width: 35%;
-  cursor: pointer;
-}
-
-.label-value {
-  color: var(--primaryBg);
-  font-weight: 600;
-  padding-left: 0.3rem;
-}
-
-.label-active {
-  background-color: var(--secondaryBg);
-  border: 1px solid var(--secondaryTxt);
-}
-
-.new-label {
-  font-size: 0.9em;
-}
-
-.note-editor {
-  width: 90%;
-  cursor: pointer;
-}

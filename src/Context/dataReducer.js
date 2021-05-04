@@ -10,11 +10,23 @@ export const dataReducer = (state, { type, payload }) => {
     case "EDIT_NOTE": {
       const pinnedNote = state.pinned.some((note) => note._id === payload._id);
       return pinnedNote
+        ? payload.pinFlag
+          ? {
+              ...state,
+              pinned: state.pinned.map((note) =>
+                note._id === payload._id ? { ...payload } : note
+              ),
+            }
+          : {
+              ...state,
+              pinned: state.pinned.filter((note) => note._id !== payload._id),
+              others: state.others.concat(payload),
+            }
+        : payload.pinFlag
         ? {
             ...state,
-            pinned: state.pinned.map((note) =>
-              note._id === payload._id ? { ...payload } : note
-            ),
+            others: state.others.filter((note) => note._id !== payload._id),
+            pinned: state.pinned.concat(payload),
           }
         : {
             ...state,

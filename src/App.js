@@ -1,14 +1,15 @@
-import './App.css';
-import { LabelContainer, NotesContainer } from './Components';
+import "./App.css";
+import { LabelContainer, Navigation, NotesContainer } from "./Components";
 
 function App() {
   return (
-    <div className="App">
-      <h2>My Notes app - noteSUP</h2>
-      <div className="grid-container">
+    <div className="grid-container">
+      <Navigation />
+      <div class="desktop-labels">
         <LabelContainer />
-        <NotesContainer />
       </div>
+      <NotesContainer />
+      {/* <Footer /> */}
     </div>
   );
 }
