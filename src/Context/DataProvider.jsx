@@ -11,7 +11,7 @@ const intialState = {
   labels: [
     {
       _id: 1,
-      name: "General",
+      name: "All Notes",
     },
     {
       _id: 2,
@@ -22,7 +22,7 @@ const intialState = {
       name: "Work",
     },
   ],
-  filter:"General"
+  filter:"All Notes"
 };
 
 export const DataProvider = ({ children }) => {
