@@ -1,7 +1,6 @@
 ## Upcoming Enhancements
-* Edit exisiting note via a separate modal
+* Footer
 * Persistence using local storage / firebase
-* Designing of the app.
 
 # Getting Started with Create React App
 

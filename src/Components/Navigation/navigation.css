@@ -1,0 +1,24 @@
+.nav{
+    padding: unset;
+}
+
+.mobile-labels{
+    position: absolute;
+    background-color: var(--theme100);
+    left:-0.7%;
+    width: 100vw;
+    z-index: 1;
+}
+
+.mobile-labels .label-component{
+    margin: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .mobile-labels, .nav-btn{
+        display: none;
+    }
+    .nav-logo{
+        margin: auto;
+    }
+}
