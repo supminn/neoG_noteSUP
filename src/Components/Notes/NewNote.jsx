@@ -20,7 +20,7 @@ export const NewNote = ({ existingNote, setEditMode }) => {
     if (existingNote) {
       setShowDetail(true);
     }
-  }, []);
+  }, [existingNote]);
 
   const createNote = (e) => {
     e.preventDefault();
@@ -64,7 +64,13 @@ export const NewNote = ({ existingNote, setEditMode }) => {
         )}
         <textarea
           ref={noteRef}
-          className={`txt-input ${existingNote?`note-description`:showDetail ? `txt-description` : `txt-note`}`}
+          className={`txt-input ${
+            existingNote
+              ? `note-description`
+              : showDetail
+              ? `txt-description`
+              : `txt-note`
+          }`}
           type="text"
           placeholder="Take a note..."
           value={note.description}
@@ -77,12 +83,15 @@ export const NewNote = ({ existingNote, setEditMode }) => {
         {showDetail && (
           <div className="note-footer">
             <NoteIcons note={note} setNote={setNote} />
-            <button className="btn secondary-txt secondary-bg" onClick={cancelHandler}>
-            <i className="fas fa-lg fa-times-circle"></i>
+            <button
+              className="btn secondary-txt secondary-bg"
+              onClick={cancelHandler}
+            >
+              <i className="fas fa-lg fa-times-circle"></i>
             </button>
-           
+
             <button className="btn primary-txt primary-bg" type="submit">
-            <i className="fas fa-lg fa-check-circle"></i>
+              <i className="fas fa-lg fa-check-circle"></i>
             </button>
           </div>
         )}
