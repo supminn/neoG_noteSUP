@@ -2,9 +2,13 @@
 @import "./Components/Label/label.css";
 @import "./Components/Navigation/navigation.css";
 @import "./Components/Container/container.css";
+@import "./Components/Authentication/authentication.css";
+
+.App{
+  text-align: center;
+}
 
 .grid-container {
-  text-align: center;
   display: grid;
 }
 

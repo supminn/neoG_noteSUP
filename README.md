@@ -1,6 +1,8 @@
 ## Upcoming Enhancements
 * Footer
+* Responsive width for newNote
 * Persistence using local storage / firebase
+* Change user password. (update email)
 
 # Getting Started with Create React App
 

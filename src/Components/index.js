@@ -7,3 +7,8 @@ export { Others } from "./Container/Others";
 export { Pinned } from "./Container/Pinned";
 
 export { Navigation } from "./Navigation/Navigation";
+
+export { Login } from "./Authentication/Login";
+export { Signup } from "./Authentication/Signup";
+export { ResetPassword } from "./Authentication/ResetPassword";
+export { PrivateRoute } from "./Container/PrivateRoute";

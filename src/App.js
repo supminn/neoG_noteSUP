@@ -1,15 +1,21 @@
 import "./App.css";
-import { LabelContainer, Navigation, NotesContainer } from "./Components";
+import { Login, Navigation, NotesContainer, Signup, ResetPassword, PrivateRoute } from "./Components";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="grid-container">
-      <Navigation />
-      <div class="desktop-labels">
-        <LabelContainer />
+    <div className="App">
+      <div className="grid-container">
+        <Navigation />
+        <Routes>
+          <PrivateRoute path="/notes" element={<NotesContainer />} />
+        </Routes>
       </div>
-      <NotesContainer />
-      {/* <Footer /> */}
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+      </Routes>
     </div>
   );
 }

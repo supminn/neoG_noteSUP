@@ -34,7 +34,19 @@
   .new-label {
     font-size: 0.9em;
   }
+
+  .user-action{
+    color: var(--primaryBg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
   
+  .fa-user{
+    cursor: default;
+  }
+
   @media screen and (min-width: 768px) {
     .label-component{
       display: flex;
