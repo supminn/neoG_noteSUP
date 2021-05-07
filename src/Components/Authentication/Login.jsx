@@ -43,7 +43,7 @@ export const Login = () => {
           setErrorMsg("User not found! Register yourself.");
           break;
         case "auth/wrong-password":
-          setErrorMsg("You seemed to have entered the wrong password. Try again");
+          setErrorMsg("Wrong password entered. Try again or reset.");
           break;
         default:
           setErrorMsg(err.message);

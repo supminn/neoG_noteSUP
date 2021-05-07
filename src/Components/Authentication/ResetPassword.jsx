@@ -1,14 +1,11 @@
 import Loader from "react-loader-spinner";
 import { useEffect, useState } from "react";
-import { Password } from "./Password";
 import { auth } from "../../Firebase/firebase";
 import { useNavigate } from "react-router";
-import { useAuthContext } from "../../Context";
 import { Link } from "react-router-dom";
 
 export const ResetPassword = () => {
   const navigate = useNavigate();
-  const { setUserData } = useAuthContext();
   const [ErrorMsg, setErrorMsg] = useState("");
   const [showLoader, setShowLoader] = useState(false);
   const [user, setUser] = useState({
@@ -28,19 +25,8 @@ export const ResetPassword = () => {
       setErrorMsg("Check your email for the reset link!");
     } catch (err) {
       switch (err.code) {
-        case "auth/user-disabled":
-          setErrorMsg("User has been disabled, contact admin.");
-          break;
         case "auth/invalid-email":
           setErrorMsg("Entered email is invalid!");
-          break;
-        case "auth/user-not-found":
-          setErrorMsg("User not found! Register yourself.");
-          break;
-        case "auth/wrong-password":
-          setErrorMsg(
-            "You seemed to have entered the wrong password. Try again"
-          );
           break;
         default:
           setErrorMsg(err.message);

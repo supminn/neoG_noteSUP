@@ -13,7 +13,6 @@ export const LabelContainer = ({ setShowLabels }) => {
   const [text, setText] = useState("");
 
   const createLabel = (e) => {
-    console.log(e);
     if (e.key === "Enter") {
       dispatch({ type: "ADD_LABEL", payload: text });
       setText("");
