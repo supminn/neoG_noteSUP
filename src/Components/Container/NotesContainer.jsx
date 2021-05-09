@@ -2,16 +2,17 @@ import { useEffect } from "react";
 import Loader from "react-loader-spinner";
 import { NewNote, Pinned, Others } from "../";
 import { useAuthContext, useDataContext } from "../../Context";
-import { fetchNotes } from "../../Firebase/firestoreCalls";
+import { fetchLabels, fetchNotes } from "../../Firebase/firestoreCalls";
 import { LabelContainer } from "../Label/LabelContainer";
 
 export const NotesContainer = () => {
   const { dispatch } = useDataContext();
-  const { showLoader, setShowLoader } = useAuthContext();
+  const { userData, showLoader, setShowLoader } = useAuthContext();
 
   useEffect(() => {
     document.title = "NoteSUP | Home";
-    fetchNotes(dispatch, setShowLoader);
+    fetchNotes(userData.uid, dispatch, setShowLoader);
+    fetchLabels(userData.uid, dispatch, setShowLoader);
   }, []);
 
   return showLoader ? (

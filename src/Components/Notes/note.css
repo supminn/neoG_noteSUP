@@ -125,3 +125,10 @@
     width: 90%;
     cursor: pointer;
 }
+
+@media screen and (min-width: 992px) {
+    .note-container{
+        width: 60%;
+        margin: auto;
+    }
+}

@@ -28,7 +28,9 @@ export const Login = () => {
           user.email,
           user.password
         );
-        setUserData({ email: res.user.email, uid: res.user.uid });
+        const userData = { email: res.user.email, uid: res.user.uid };
+        setUserData(userData);
+        localStorage.setItem("user",JSON.stringify(userData));
         navigate("/notes");
     } catch (err) {
       switch (err.code) {
@@ -42,7 +44,7 @@ export const Login = () => {
           setErrorMsg("User not found! Register yourself.");
           break;
         case "auth/wrong-password":
-          setErrorMsg("Wrong password entered. Try again or reset.");
+          setErrorMsg("Password is incorrect!");
           break;
         default:
           setErrorMsg(err.message);

@@ -1,4 +1,4 @@
-// import { v4 as uuid } from "uuid";
+import { initialState } from "./DataProvider";
 
 export const dataReducer = (state, { type, payload }) => {
   switch (type) {
@@ -9,6 +9,9 @@ export const dataReducer = (state, { type, payload }) => {
       return payload.pinFlag
         ? { ...state, pinned: state.pinned.concat(payload) }
         : { ...state, others: state.others.concat(payload) };
+
+    case "ADD_LABEL":
+      return { ...state, labels: state.labels.concat(payload).sort() };
 
     case "ADD_NOTE":
       return payload.pinFlag
@@ -76,9 +79,17 @@ export const dataReducer = (state, { type, payload }) => {
           };
     }
 
-    case "ADD_LABEL":
-      const newLabel = { id: state.labels.length + 1, name: payload };
-      return { ...state, labels: state.labels.concat(newLabel) };
+    case "DELETE_LABEL": {
+      return {
+            ...state,
+            labels: state.labels.filter(label => label.id !== payload.id),
+            filter: "All Notes"
+          }
+    }
+
+
+    case "CLEAR_NOTES":
+      return initialState;
 
     default:
       return state;

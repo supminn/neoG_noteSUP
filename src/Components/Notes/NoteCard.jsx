@@ -6,7 +6,7 @@ import { deleteNote } from "../../Firebase/firestoreCalls";
 export const NoteCard = ({ note }) => {
   const { dispatch } = useDataContext();
   const [editMode, setEditMode] = useState(false);
-  const {setShowLoader} = useAuthContext();
+  const { userData, setShowLoader } = useAuthContext();
 
   useEffect(() => {
     const modal = document.querySelector(".modal-container");
@@ -18,11 +18,7 @@ export const NoteCard = ({ note }) => {
   }, [editMode]);
 
   return (
-    <div
-      className="card"
-      style={{ backgroundColor: note.color }}
-      key={note.id}
-    >
+    <div className="card" style={{ backgroundColor: note.color }} key={note.id}>
       <div className="note-editor" onClick={() => setEditMode(true)}>
         <h3 className="note-title">{note.title}</h3>
         <p className="note-body">{note.description}</p>
@@ -30,7 +26,7 @@ export const NoteCard = ({ note }) => {
       <NoteIcons note={note} />
       <i
         className="fas fa-trash fa-lg secondary-txt"
-        onClick={() => deleteNote(note, dispatch, setShowLoader)}
+        onClick={() => deleteNote(userData.uid, note, dispatch, setShowLoader)}
       ></i>
       {editMode && (
         <div className="modal-container">

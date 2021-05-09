@@ -4,7 +4,7 @@ import { NoteIcons } from "..";
 import { addNote, updateNote } from "../../Firebase/firestoreCalls";
 
 export const NewNote = ({ existingNote, setEditMode }) => {
-  const {setShowLoader} = useAuthContext();
+  const {userData, setShowLoader} = useAuthContext();
   const { dispatch } = useDataContext();
   const initialState = {
     title: "",
@@ -28,10 +28,10 @@ export const NewNote = ({ existingNote, setEditMode }) => {
     e.preventDefault();
     if (note.title || note.description) {
       if (existingNote) {
-        await updateNote(note,"EDIT_NOTE", dispatch, setShowLoader);
+        await updateNote(userData.uid, note,"EDIT_NOTE", dispatch, setShowLoader);
         setEditMode(false);
       } else {
-        await addNote(note, dispatch, setShowLoader);
+        await addNote(userData.uid, note, dispatch, setShowLoader);
       }
     }
     setNote(initialState);

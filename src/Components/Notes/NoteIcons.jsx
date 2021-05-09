@@ -6,7 +6,7 @@ export const NoteIcons = ({ note, setNote = false }) => {
     state: { labels },
     dispatch,
   } = useDataContext();
-  const { setShowLoader } = useAuthContext();
+  const { userData, setShowLoader } = useAuthContext();
   const colors = [
     "#FDD892",
     "#C3E1A1",
@@ -23,7 +23,7 @@ export const NoteIcons = ({ note, setNote = false }) => {
       setNote((note) => ({ ...note, pinFlag: !note.pinFlag }));
     } else {
       note.pinFlag = !note.pinFlag;
-      await updateNote(note, "TOGGLE_PIN", dispatch, setShowLoader);
+      await updateNote(userData.uid, note, "TOGGLE_PIN", dispatch, setShowLoader);
     }
   };
 
@@ -32,7 +32,7 @@ export const NoteIcons = ({ note, setNote = false }) => {
       setNote((note) => ({ ...note, color: shade }));
     } else {
       note.color = shade;
-      await updateNote(note, "EDIT_NOTE", dispatch, setShowLoader);
+      await updateNote(userData.uid, note, "EDIT_NOTE", dispatch, setShowLoader);
     }
   };
 
@@ -41,7 +41,7 @@ export const NoteIcons = ({ note, setNote = false }) => {
       setNote((note) => ({ ...note, label: e.target.value }));
     } else {
       note.label = e.target.value;
-      await updateNote(note, "EDIT_NOTE", dispatch, setShowLoader);
+      await updateNote(userData.uid, note, "EDIT_NOTE", dispatch, setShowLoader);
     }
   };
 
