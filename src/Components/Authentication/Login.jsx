@@ -16,7 +16,7 @@ export const Login = () => {
   });
 
   useEffect(() => {
-    document.title = "SupVision | Login";
+    document.title = "NoteSUP | Login";
   }, []);
 
 

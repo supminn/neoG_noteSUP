@@ -14,7 +14,7 @@ export const ResetPassword = () => {
   });
 
   useEffect(() => {
-    document.title = "SupVision | Reset Password";
+    document.title = "NoteSUP | Reset Password";
   }, []);
 
   const resetPassword = async (e) => {
