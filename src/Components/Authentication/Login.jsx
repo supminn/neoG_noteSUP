@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
-  const { setUserData } = useAuthContext();
+  const { setUserData, showLoader, setShowLoader } = useAuthContext();
   const [ErrorMsg, setErrorMsg] = useState("");
-  const [showLoader, setShowLoader] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",

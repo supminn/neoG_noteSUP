@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { useDataContext } from "../../Context";
+import { useAuthContext, useDataContext } from "../../Context";
 import { NoteIcons } from "..";
+import { addNote, updateNote } from "../../Firebase/firestoreCalls";
 
 export const NewNote = ({ existingNote, setEditMode }) => {
+  const {setShowLoader} = useAuthContext();
   const { dispatch } = useDataContext();
   const initialState = {
     title: "",
     description: "",
-    label: "General",
+    label: "All Notes",
     color: "",
     pinFlag: false,
   };
@@ -22,14 +24,14 @@ export const NewNote = ({ existingNote, setEditMode }) => {
     }
   }, [existingNote]);
 
-  const createNote = (e) => {
+  const createNote = async (e) => {
     e.preventDefault();
     if (note.title || note.description) {
       if (existingNote) {
-        dispatch({ type: "EDIT_NOTE", payload: note });
+        await updateNote(note,"EDIT_NOTE", dispatch, setShowLoader);
         setEditMode(false);
       } else {
-        dispatch({ type: "ADD_NOTE", payload: note });
+        await addNote(note, dispatch, setShowLoader);
       }
     }
     setNote(initialState);

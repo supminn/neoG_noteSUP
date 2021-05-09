@@ -10,15 +10,15 @@ const intialState = {
   others: [],
   labels: [
     {
-      _id: 1,
+      id: 1,
       name: "All Notes",
     },
     {
-      _id: 2,
+      id: 2,
       name: "Personal",
     },
     {
-      _id: 3,
+      id: 3,
       name: "Work",
     },
   ],
@@ -27,7 +27,6 @@ const intialState = {
 
 export const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(dataReducer, intialState);
-
   return (
     <DataContext.Provider value={{ state, dispatch }}>
       {children}

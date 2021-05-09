@@ -7,9 +7,8 @@ import { Password } from "./Password";
 
 export const Signup = () => {
   const navigate = useNavigate();
-  const { setUserData } = useAuthContext();
+  const { setUserData, showLoader, setShowLoader } = useAuthContext();
   const [ErrorMsg, setErrorMsg] = useState("");
-  const [showLoader, setShowLoader] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",

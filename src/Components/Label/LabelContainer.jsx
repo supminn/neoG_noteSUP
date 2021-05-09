@@ -30,7 +30,7 @@ export const LabelContainer = ({ setShowLabels }) => {
       <div className="existing-labels">
         {labels.map((value) => (
           <div
-            key={value._id}
+            key={value.id}
             className={
               filter === value.name
                 ? "labels-container label-active"

@@ -20,6 +20,12 @@
   display: none;
 }
 
+.loader-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 @media screen and (min-width: 768px) {
   .desktop-labels {
     display: block;

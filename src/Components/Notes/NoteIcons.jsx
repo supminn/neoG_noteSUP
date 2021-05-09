@@ -1,10 +1,12 @@
-import { useDataContext } from "../../Context";
+import { useAuthContext, useDataContext } from "../../Context";
+import { updateNote } from "../../Firebase/firestoreCalls";
 
 export const NoteIcons = ({ note, setNote = false }) => {
   const {
     state: { labels },
     dispatch,
   } = useDataContext();
+  const { setShowLoader } = useAuthContext();
   const colors = [
     "#FDD892",
     "#C3E1A1",
@@ -15,15 +17,39 @@ export const NoteIcons = ({ note, setNote = false }) => {
     "#FA976C",
     "#FFFFFF",
   ];
+
+  const togglePin = async () => {
+    if (setNote) {
+      setNote((note) => ({ ...note, pinFlag: !note.pinFlag }));
+    } else {
+      note.pinFlag = !note.pinFlag;
+      await updateNote(note, "TOGGLE_PIN", dispatch, setShowLoader);
+    }
+  };
+
+  const setColor = async (shade) => {
+    if (setNote) {
+      setNote((note) => ({ ...note, color: shade }));
+    } else {
+      note.color = shade;
+      await updateNote(note, "EDIT_NOTE", dispatch, setShowLoader);
+    }
+  };
+
+  const setLabel = async (e) => {
+    if (setNote) {
+      setNote((note) => ({ ...note, label: e.target.value }));
+    } else {
+      note.label = e.target.value;
+      await updateNote(note, "EDIT_NOTE", dispatch, setShowLoader);
+    }
+  };
+
   return (
     <div className="note-icons">
       <i
         className={`fas fa-thumbtack fa-lg ${note.pinFlag ? "pinned" : ""}`}
-        onClick={() =>
-          setNote
-            ? setNote((note) => ({ ...note, pinFlag: !note.pinFlag }))
-            : dispatch({ type: "TOGGLE_PIN", payload: note })
-        }
+        onClick={togglePin}
       ></i>
       <div className="palette-container">
         {/* <i className="fas fa-palette fa-lg primaryBg-txt"></i> */}
@@ -33,32 +59,18 @@ export const NoteIcons = ({ note, setNote = false }) => {
               className="fas fa-circle fa-lg"
               style={{ color: shade }}
               key={shade}
-              onClick={() =>
-                setNote
-                  ? setNote((note) => ({ ...note, color: shade }))
-                  : dispatch({
-                      type: "SET_COLOR",
-                      payload: { _id: note._id, shade },
-                    })
-              }
+              onClick={() => setColor(shade)}
             ></i>
           ))}
         </div>
         <select
           className="label-container"
           value={note.label}
-          onChange={(e) =>
-            setNote
-              ? setNote((note) => ({ ...note, label: e.target.value }))
-              : dispatch({
-                  type: "SET_LABEL",
-                  payload: { _id: note._id, label: e.target.value },
-                })
-          }
+          onChange={setLabel}
         >
           {labels.map((value) => (
-            <option key={value._id} value={value.name}>
-              {value.name==="All Notes"?"No Tag":value.name}{" "}
+            <option key={value.id} value={value.name}>
+              {value.name === "All Notes" ? "No Tag" : value.name}{" "}
             </option>
           ))}
         </select>

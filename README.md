@@ -3,6 +3,7 @@
 * Responsive width for newNote
 * Persistence using local storage / firebase
 * Change user password. (update email)
+* Order of notes after updation from DB.
 
 # Getting Started with Create React App
 
