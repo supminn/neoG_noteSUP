@@ -1,3 +1,4 @@
+[![wakatime](https://wakatime.com/badge/github/supminn/neoG_noteSUP.svg)](https://wakatime.com/badge/github/supminn/neoG_noteSUP)
 ## Upcoming Enhancements
 * Handle "All Notes" label
 * Change user password. (update email)
