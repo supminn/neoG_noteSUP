@@ -20,9 +20,11 @@ NoteSUP is an essential note-taking app. Register with a valid email and get sta
 - Responsive design - mobile-friendly.
 
 ## Deployed Link & demo
-[Live](https://notesup.netlify.app/)
+[Deployed Link](https://notesup.netlify.app/)
 
-Screenshots and Videos to explain the working of the application.
+**Demo run**
+
+https://user-images.githubusercontent.com/30731236/122633327-a9d7f700-d0f5-11eb-9724-039aca0b3849.mp4
 
 ## Test credentials
 **Email:** test@note.com
