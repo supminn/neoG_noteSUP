@@ -1,0 +1,63 @@
+
+.label-container {
+    font-family: inherit;
+    background-color: var(--theme50);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+  }
+  
+  .label-container>option {
+    font-family: inherit;
+  }
+
+  .labels-container {
+    display: flex;
+    padding: 0.4rem;
+    border: 1px solid transparent;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    width: 12rem;
+    cursor: pointer;
+    justify-content: space-between;
+  }
+
+  .label-value {
+    color: var(--primaryBg);
+    font-weight: 600;
+    padding-left: 0.3rem;
+  }
+  
+  .label-active {
+    background-color: var(--secondaryBg);
+    border: 1px solid var(--secondaryTxt);
+  }
+  
+  .new-label {
+    font-size: 0.9em;
+  }
+
+  .user-action{
+    color: var(--primaryBg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .fa-user{
+    cursor: default;
+  }
+
+  @media screen and (min-width: 768px) {
+    .label-component{
+      display: flex;
+      height: 80vh;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 1rem;
+      position: sticky;
+      top:2rem;
+    }
+    .user-action{
+      width: 14rem;
+    }
+  }

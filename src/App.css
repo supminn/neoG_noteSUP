@@ -1,38 +1,55 @@
-.App {
+@import "./Components/Notes/note.css";
+@import "./Components/Label/label.css";
+@import "./Components/Navigation/navigation.css";
+@import "./Components/Container/container.css";
+@import "./Components/Authentication/authentication.css";
+@import "./Components/Footer/footer.css";
+
+.App{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.body-container{
+  min-height: 85vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.grid-container {
+  display: grid;
+}
+
+.modal-container {
+  display: block;
+}
+
+.desktop-labels {
+  display: none;
+}
+
+.loader-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+@media screen and (min-width: 768px) {
+  .desktop-labels {
+    display: block;
+    grid-area: labels;
+  }
+
+  .grid-container {
+    grid-template-areas: "nav nav"
+      "labels notes";
+      grid-template-columns: 1fr 3fr;
+    grid-gap: 1rem;
+  }
+
+  .nav {
+    grid-area: nav;
+  }
+
+  .notes-container {
+    grid-area: notes;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

@@ -1,0 +1,134 @@
+.note-container {
+    border-radius: 0.5rem;
+    border: 2px solid var(--theme200);
+    position: relative;
+    background-color: var(--theme50);
+    margin: 1rem;
+}
+
+.txt-input {
+    display: block;
+    background-color: unset;
+    color: var(--black);
+}
+
+.txt-title {
+    width: 100%;
+    font-size: large;
+    font-weight: bold;
+}
+
+.txt-description,
+.txt-note,
+.note-description {
+    width: 100%;
+    font-size: 0.9em;
+    resize: none;
+}
+
+.txt-note {
+    height: 2.5rem;
+}
+
+.note-description {
+    height: 15rem;
+}
+
+.txt-description {
+    height: 8rem;
+}
+
+.fas {
+    cursor: pointer;
+}
+
+.fa-thumbtack {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--theme300);
+    border-radius: 50%;
+    padding: 0.5rem;
+    padding-top: 0.8rem;
+}
+
+.fa-thumbtack:hover {
+    background-color: var(--theme50);
+    color: var(--primaryBg);
+}
+
+.pinned {
+    color: var(--primaryBg);
+}
+
+.color-palette {
+    display: block;
+    width: 7rem;
+    border-radius: 0.5rem;
+}
+
+.palette-container {
+    display: flex;
+    align-items: center;
+}
+
+.fa-circle {
+    padding: 0.3rem 0.1rem;
+    border-radius: 50%;
+}
+
+.fa-circle:hover {
+    transform: scale(1.2);
+}
+
+.fa-trash {
+    position: absolute;
+    left: 3%;
+    bottom: 15%;
+    padding: 0.5rem 0.4rem;
+    border-radius: 50%;
+}
+
+.fa-trash:hover {
+    background-color: var(--secondaryBg);
+}
+
+.note-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin: 0.3rem 0.1rem;
+    padding: 0.3rem;
+    height: fit-content;
+}
+
+.card {
+    background-color: unset;
+    width: 90%;
+    margin: auto;
+}
+
+.note-body {
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    line-height: 1.6;
+    height: 5rem;
+}
+
+.note-editor {
+    width: 90%;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+    .note-container{
+        width: 60%;
+        margin: auto;
+    }
+}

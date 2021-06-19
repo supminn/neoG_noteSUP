@@ -1,0 +1,22 @@
+import { useState } from "react";
+import logo from "../../images/logo.png";
+import { LabelContainer } from "../Label/LabelContainer";
+
+export const Navigation = () => {
+    const [showLabels, setShowLabels] = useState(false);
+
+    return(
+        <nav className="nav">
+        <div className="nav-logo">
+            <img className="img-rd" src={logo} alt="logo"/>
+            <span className="nav-header">NoteSUP</span>
+        </div>
+        <span className="nav-btn" onClick={() => setShowLabels(val => !val)}>
+          <i className="fas fa-chevron-circle-down fa-lg"></i>
+      </span>
+        {showLabels && <div className="mobile-labels">
+            <LabelContainer setShowLabels={setShowLabels}/>
+        </div>}
+      </nav>
+    )
+}
