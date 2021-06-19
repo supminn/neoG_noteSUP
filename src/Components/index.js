@@ -7,6 +7,7 @@ export { Others } from "./Container/Others";
 export { Pinned } from "./Container/Pinned";
 
 export { Navigation } from "./Navigation/Navigation";
+export { Footer } from "./Footer/Footer";
 
 export { Login } from "./Authentication/Login";
 export { Signup } from "./Authentication/Signup";

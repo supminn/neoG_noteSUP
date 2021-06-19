@@ -1,13 +1,62 @@
 [![wakatime](https://wakatime.com/badge/github/supminn/neoG_noteSUP.svg)](https://wakatime.com/badge/github/supminn/neoG_noteSUP)
-## Upcoming Enhancements
-* Handle "All Notes" label
-* Change user password. (update email)
-* Footer
 
-# Getting Started with Create React App
+# NoteSUP
+NoteSUP is an essential note-taking app. Register with a valid email and get started with this user-friendly web application. 
+
+## Technology Stack
+- React for frontend development
+- Styling using personal CSS component library [StyleSUP](https://stylesup.netlify.app/)
+- React router v6 (beta) for routing
+- Google Firebase for user authentication 
+- Firebase firestore for data storage
+
+## Features of NoteSUP
+- Login/signup using valid email. Reset the password when required.
+- Create, edit and delete individual note.
+- Customised notes by colors and tags.
+- Display the list of existing notes with a separate section for pinned notes.
+- Pin and unpin notes while creating or editing.
+- Create and maintain a list of tags.
+- Responsive design - mobile-friendly.
+
+## Deployed Link & demo
+[Live](https://notesup.netlify.app/)
+
+Screenshots and Videos to explain the working of the application.
+
+## Test credentials
+**Email:** test@note.com
+
+**Password:** TestNote1
+
+## Enhancements
+* Change user password or update email id.
+
+## Instructions on using NoteSUP locally.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This starter kit could be installed in 2 ways.
+
+1. Clone this repository and start working on the development.
+2. Using [degit](https://github.com/Rich-Harris/degit).
+
+### Instructions while using degit
+
+degit installation:
+
+```bash
+npm install -g degit
+```
+
+Follow the below instructions to use this starter kit:
+
+```
+degit supminn/neoG_noteSUP my-app-name
+cd my-app-name
+
+yarn install
+```
 ## Available Scripts
 
 In the project directory, you can run:

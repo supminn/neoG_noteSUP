@@ -3,9 +3,14 @@
 @import "./Components/Navigation/navigation.css";
 @import "./Components/Container/container.css";
 @import "./Components/Authentication/authentication.css";
+@import "./Components/Footer/footer.css";
 
 .App{
   text-align: center;
+}
+
+.body-container{
+  min-height: 85vh;
 }
 
 .grid-container {
