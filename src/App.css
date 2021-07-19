@@ -4,6 +4,7 @@
 @import "./Components/Container/container.css";
 @import "./Components/Authentication/authentication.css";
 @import "./Components/Footer/footer.css";
+@import "./Components/Home/home.css";
 
 .App{
   text-align: center;
