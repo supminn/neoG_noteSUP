@@ -19,19 +19,18 @@ export const Login = () => {
     document.title = "NoteSUP | Login";
   }, []);
 
-
   const loginHandler = async (e) => {
     e.preventDefault();
     try {
       setShowLoader(true);
-        const res = await auth.signInWithEmailAndPassword(
-          user.email,
-          user.password
-        );
-        const userData = { email: res.user.email, uid: res.user.uid };
-        setUserData(userData);
-        localStorage.setItem("user",JSON.stringify(userData));
-        navigate("/notes");
+      const res = await auth.signInWithEmailAndPassword(
+        user.email,
+        user.password
+      );
+      const userData = { email: res.user.email, uid: res.user.uid };
+      setUserData(userData);
+      localStorage.setItem("user", JSON.stringify(userData));
+      navigate("/notes");
     } catch (err) {
       switch (err.code) {
         case "auth/user-disabled":
@@ -83,14 +82,23 @@ export const Login = () => {
         <button type="submit" className="btn btn-primary">
           Login
         </button>
+        <p
+          className="btn-link"
+          onClick={() =>
+            setUser((data) => ({
+              ...data,
+              email: "test@note.com",
+              password: "TestNote1",
+            }))
+          }
+        >
+          Use test credentials
+        </p>
         {ErrorMsg && <p className="txt-desc primaryBg-txt">{ErrorMsg}</p>}
       </form>
 
       <p className="txt-desc primaryBg-txt">
-        Forgotten password?{" "}
-        <Link to="/reset-password">
-          Reset here
-        </Link>
+        Forgotten password? <Link to="/reset-password">Reset here</Link>
       </p>
       <div className="signup-container">
         <b className="primaryBg-txt">Not a member? </b>

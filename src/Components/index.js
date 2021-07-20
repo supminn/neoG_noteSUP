@@ -8,6 +8,7 @@ export { Pinned } from "./Container/Pinned";
 
 export { Navigation } from "./Navigation/Navigation";
 export { Footer } from "./Footer/Footer";
+export { Home } from "./Home/Home";
 
 export { Login } from "./Authentication/Login";
 export { Signup } from "./Authentication/Signup";

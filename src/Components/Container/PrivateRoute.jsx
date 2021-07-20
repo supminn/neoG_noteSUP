@@ -3,7 +3,7 @@ import { useAuthContext } from "../../Context";
 
 export const PrivateRoute = ({ path, ...props }) => {
   const { userData } = useAuthContext();
-  return null!==userData ? (
+  return userData.email ? (
     <Route path={path} {...props} />
   ) : (
     <Navigate replace to="/" state={{ from: path }} />
