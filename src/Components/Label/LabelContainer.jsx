@@ -18,7 +18,7 @@ export const LabelContainer = ({ setShowLabels }) => {
   const [text, setText] = useState("");
 
   const createLabel = async (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && text !== "") {
       await addLabel(userData.uid, text, dispatch, setShowLoader);
       setText("");
     }
@@ -98,8 +98,10 @@ export const LabelContainer = ({ setShowLabels }) => {
             <i
               className="fas fa-plus-circle fa-lg"
               onClick={() => {
-                dispatch({ type: "ADD_LABEL", payload: text });
-                setText("");
+                if (text !== "") {
+                  dispatch({ type: "ADD_LABEL", payload: text });
+                  setText("");
+                }
               }}
             ></i>
           </span>
