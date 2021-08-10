@@ -1,16 +1,19 @@
 [![wakatime](https://wakatime.com/badge/github/supminn/neoG_noteSUP.svg)](https://wakatime.com/badge/github/supminn/neoG_noteSUP)
 
 # NoteSUP
-NoteSUP is an essential note-taking app. Register with a valid email and get started with this user-friendly web application. 
+
+NoteSUP is an essential note-taking app. Register with a valid email and get started with this user-friendly web application.
 
 ## Technology Stack
+
 - React for frontend development
 - Styling using personal CSS component library [StyleSUP](https://stylesup.netlify.app/)
 - React router v6 (beta) for routing
-- Google Firebase for user authentication 
+- Google Firebase for user authentication
 - Firebase firestore for data storage
 
 ## Features of NoteSUP
+
 - Login/signup using valid email. Reset the password when required.
 - Create, edit and delete individual note.
 - Customised notes by colors and tags.
@@ -20,6 +23,7 @@ NoteSUP is an essential note-taking app. Register with a valid email and get sta
 - Responsive design - mobile-friendly.
 
 ## Deployed Link & demo
+
 [Deployed Link](https://notesup.netlify.app/)
 
 **Demo run**
@@ -27,12 +31,15 @@ NoteSUP is an essential note-taking app. Register with a valid email and get sta
 https://user-images.githubusercontent.com/30731236/122633327-a9d7f700-d0f5-11eb-9724-039aca0b3849.mp4
 
 ## Test credentials
+
 **Email:** test@note.com
 
 **Password:** TestNote1
 
 ## Enhancements
-* Change user password or update email id.
+
+- Change user password or update email id.
+- Add new label while creating the note.
 
 ## Instructions on using NoteSUP locally.
 
@@ -59,6 +66,7 @@ cd my-app-name
 
 yarn install
 ```
+
 ## Available Scripts
 
 In the project directory, you can run:
